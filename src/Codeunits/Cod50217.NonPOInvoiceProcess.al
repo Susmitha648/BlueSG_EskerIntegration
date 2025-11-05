@@ -33,10 +33,10 @@ codeunit 50217 "Non PO Invoice Process"
             PurchaseHeader."Document Type" := PurchaseHeader."Document Type"::"Credit Memo";
             PurchaseHeader.Validate("Vendor Cr. Memo No.", Rec."Invoice No.");
         end;
+        PurchaseHeader.Validate("Posting Date", Rec."Posting Date");
         PurchaseHeader.Insert(true);
         PurchaseHeader.Validate("Buy-from Vendor No.", Rec."Vendor No.");
         PurchaseHeader.Validate("Document Date", Rec."Invoice Date");
-        PurchaseHeader.Validate("Posting Date", Rec."Posting Date");
         PurchaseHeader.Modify();
 
         GLSetup.Get();
